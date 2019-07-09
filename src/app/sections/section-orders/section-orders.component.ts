@@ -16,7 +16,7 @@ export class SectionOrdersComponent implements OnInit {
   page = 1;
   limit = 10;
   loading = false;
-  
+
   ngOnInit() {
     this.getOrders();
   }
@@ -31,13 +31,13 @@ export class SectionOrdersComponent implements OnInit {
       });
   }
 
-  getPrevious(): void {
+  goToPrevious(): void {
     // console.log('Previous Button Clicked!');
     this.page--;
     this.getOrders();
   }
 
-  getNext(): void {
+  goToNext(): void {
     // console.log('Next Button Clicked!');
     this.page++;
     this.getOrders();
