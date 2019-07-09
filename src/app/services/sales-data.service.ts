@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Http } from '@angular/http';
+import 'rxjs/add/operator/map';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SalesDataService {
-  private headers: HttpHeaders;
-  private accessPointUrl = 'http://localhost:5001/api/order/';
 
-  constructor(private http: HttpClient) {
-    this.headers = new HttpHeaders({'Content-Type': 'application/json; charset=utf-8'});
-   }
+  constructor(private _http: Http) { }
 
-   public getOrders(page, limit) {
-  
-    return this.http.get(this.accessPointUrl + page + '/' + limit, { headers: this.headers });
+  getOrders(pageIndex: number, pageSize: number) {
+    return this._http.get('http://localhost:5000/api/order/' + pageIndex + '/' + pageSize)
+      .map(res => res.json());
+  }
+
+  getOrdersByCustomer(n: number) {
+    return this._http.get('http://localhost:5000/api/order/bycustomer/' + n)
+      .map(res => res.json());
+  }
+
+  getOrdersByState() {
+    return this._http.get('http://localhost:5000/api/order/bystate/')
+      .map(res => res.json());
   }
 }
