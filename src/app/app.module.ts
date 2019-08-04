@@ -19,6 +19,7 @@ import { ServerComponent } from './server/server.component';
 
 // Services
 import { SalesDataService } from './services/sales-data.service';
+import { ServerService } from './services/server.service';
 
 import {appRoutes} from '../routes';
 import { PaginationComponent } from './pagination/pagination.component';
@@ -45,6 +46,7 @@ import { PaginationComponent } from './pagination/pagination.component';
   ],
   providers: [
     SalesDataService,
+    ServerService
   ],
   bootstrap: [AppComponent]
 })
