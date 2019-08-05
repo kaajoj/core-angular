@@ -22,5 +22,4 @@ export class SectionSalesComponent implements OnInit {
       this.salesDataByCustomer = res;
     });
   }
-
 }
